@@ -2,7 +2,7 @@
 
 namespace DesignPatterns.Factory
 {
-    public static class ChatUsers
+    public static class ObserverFactory
     {
         public static void CreateUsers()
         {

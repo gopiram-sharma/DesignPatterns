@@ -10,8 +10,9 @@ namespace DesignPatterns
         {
             //Ducks.CreateDucks();
             //ChatUsers.CreateUsers();
-            Beverages.MakeCoffee();
-            Beverages.MakeTea();
+            //DecoratorFactory.MakeCoffee();
+            //DecoratorFactory.MakeTea();
+            BridgeFactory.MakePayment();
 
             Console.ReadLine();
         }

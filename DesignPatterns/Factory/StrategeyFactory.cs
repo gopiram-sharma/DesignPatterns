@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DesignPatterns.Factory
 {
-    public static class Ducks
+    public static class StrategeyFactory
     {
         public static void CreateDucks()
         {

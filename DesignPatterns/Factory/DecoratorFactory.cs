@@ -5,7 +5,7 @@ using System.Text;
 
 namespace DesignPatterns.Factory
 {
-    public static class Beverages
+    public static class DecoratorFactory
     {
         public static void MakeCoffee()
         {
