@@ -9,7 +9,10 @@ namespace DesignPatterns
         static void Main(string[] args)
         {
             //Ducks.CreateDucks();
-            ChatUsers.CreateUsers();
+            //ChatUsers.CreateUsers();
+            Beverages.MakeCoffee();
+            Beverages.MakeTea();
+
             Console.ReadLine();
         }
     }
