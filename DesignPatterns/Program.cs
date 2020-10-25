@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DesignPatterns.Strategy;
+using System;
 
 namespace DesignPatterns
 {
@@ -6,7 +7,11 @@ namespace DesignPatterns
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            DomesticDuck duck = new DomesticDuck(new NaturalDisplayBehaviour(), new NormalFlyBehaviour(), new NaturalQuackBehaviour());
+            duck.Fly();
+            duck.Quack();
+            duck.Display();
+            Console.ReadLine();
         }
     }
 }
