@@ -2,6 +2,7 @@ namespace Trading.Model;
 using System;
 using System.Collections.Generic;
 using Trading.Model.Events;
+using Trading.Model.Interfaces;
 
 public class Market
 {
@@ -9,6 +10,12 @@ public class Market
 
     private List<Stock> _stocks = new List<Stock>();
 
+    private readonly ILogger _logger;
+    public Market(ILogger logger)
+    {
+        _logger = logger;
+    }
+    
     public void SeedStocks()
     {
         _stocks.Add(new Stock("AAPL", "Apple Inc.", 150.00m));
@@ -45,9 +52,9 @@ public class Market
 
     public void PrintMarketStatus()
     {
-        Console.WriteLine("\nMarket Status:");
+        _logger.Log("\nMarket Status:");
         foreach (var stock in _stocks)
-            Console.WriteLine($"  {stock}");
+            _logger.Log($"  {stock}");
 
         foreach (var trader in _traders)
             trader.PrintPortfolio();
@@ -56,11 +63,11 @@ public class Market
     private void OnPriceChanged(object sender, PriceChangedEventArgs e)
     {
         var stock = (Stock)sender;
-        Console.WriteLine($"[Event] {stock.Ticker} price changed from ${e.OldPrice:F2} to ${e.NewPrice:F2}");
+        _logger.Log($"[Event] {stock.Ticker} price changed from ${e.OldPrice:F2} to ${e.NewPrice:F2}");
     }
 
     private void OnTradeExecuted(object sender, TradeEventArgs e)
     {
-        Console.WriteLine($"[Trade Event] {e.Trader.Name} {e.Action} {e.Quantity} x {e.Stock.Ticker} at ${e.Price:F2}");
+        _logger.Log($"[Trade Event] {e.Trader.Name} {e.Action} {e.Quantity} x {e.Stock.Ticker} at ${e.Price:F2}");
     }
 }
